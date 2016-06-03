@@ -27,6 +27,7 @@ RUN dnf install -y tar \
     patch \
     liberation-sans-fonts \
     java-1.8.0-openjdk-devel \
+    git \
     python-setuptools \
   && dnf clean packages \
   && gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
