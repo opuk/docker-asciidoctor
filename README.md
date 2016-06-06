@@ -1,7 +1,9 @@
-= Asciidoctor Docker Container
+Asciidoctor Docker Container
+========================
 :source-highlighter: coderay
 
-== The environment
+The environment
+---------------------
 
 This Docker container provides:
 
@@ -15,56 +17,48 @@ This Docker container provides:
 * Asciidoctor-confluence
 * Lazybones (for Asciidoctor-revealjs)
 
-== How to use it
+How to use it
+---------------
 
 Just run:
 
-[source,bash]
-----
-docker run -it -v <your directory>:/documents/ asciidoctor/docker-asciidoctor
-----
+```docker run -it -v <your directory>:/documents/ asciidoctor/docker-asciidoctor```
 
 It will be directly mapped with [path]_/documents_ of the container.
 
 Once started, you just have to create AsciiDoc files (in the directory mentioned above) and run Asciidoctor commands like:
 
 * To run Asciidoctor on a basic AsciiDoc file:
-+
-[source,bash]
-----
+
+```
 asciidoctor sample.adoc
 asciidoctor-pdf sample.adoc
 asciidoctor-epub3 sample.adoc
-----
+```
 
 * To run AsciiDoc on an AsciiDoc file that contains diagrams:
-+
-[source,bash]
-----
+
+```
 asciidoctor -r asciidoctor-diagram sample-with-diagram.adoc
 asciidoctor-pdf -r asciidoctor-diagram sample-with-diagram.adoc
 asciidoctor-epub3 -r asciidoctor-diagram sample-with-diagram.adoc
-----
+```
 
 * To use Asciidoctor-backends use +-T+ with either `/asciidoctor-backends` or `$BACKENDS` followed by the backend you want to use. For example:
-[source,bash]
-----
+```
 asciidoctor -T /asciidoctor-backends/slim/dzslides myFile.adoc
 #or
 asciidoctor -T $BACKENDS/slim/dzslides myFile.adoc
-----
+```
 
 * To use fopub, you first need to generate the docbook file then use fopub:
-+
-[source, bash]
-----
+
+```
 asciidoctor -b docbook sample.adoc
 fopub sample.xml
-----
+```
 
 * To use asciidoctor-confluence
-+
-[source, bash]
-----
+```
 asciidoctor-confluence --host HOSTNAME --spaceKey SPACEKEY --title TITLE --username USER --password PASSWORD sample.adoc
-----
+```
