@@ -1,6 +1,6 @@
 FROM fedora
 
-MAINTAINER Guillaume Scheibel <guillaume.scheibel@gmail.com>
+MAINTAINER Christina Kyriakidou <ckyriaki@redhat.com>
 
 ENV JAVA_HOME /jdk1.8.0_20
 ENV PATH $PATH:$JAVA_HOME/bin:/fopub/bin
@@ -43,7 +43,9 @@ RUN dnf install -y tar \
   && easy_install actdiag \
   && easy_install nwdiag
 
+RUN useradd -m  -s /bin/bash asciidoc && chown -R asciidoc. /documents
 WORKDIR /documents
 VOLUME /documents
+USER asciidoc
 
 CMD ["/bin/bash"]
