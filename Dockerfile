@@ -43,7 +43,8 @@ RUN dnf install -y tar \
   && easy_install actdiag \
   && easy_install nwdiag
 
-RUN useradd -m  -s /bin/bash asciidoc && chown -R asciidoc. /documents
+RUN groupadd -r asciidoc -g 1000 && useradd -u 1000 -r -g asciidoc -m  -s /bin/bash -c "Asciidoctor user" asciidoc 
+
 WORKDIR /documents
 VOLUME /documents
 USER asciidoc
