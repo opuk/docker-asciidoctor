@@ -29,9 +29,10 @@ RUN dnf install -y tar \
     java-1.8.0-openjdk-devel \
     git \
     python-setuptools \
+    asciidoctor \
+    asciidoctor-diagram \
+    asciidoctor-confluence\
   && dnf clean packages \
-  && gem install --no-ri --no-rdoc asciidoctor --version $ASCIIDOCTOR_VERSION \
-  && gem install --no-ri --no-rdoc asciidoctor-diagram \
   && gem install --no-ri --no-rdoc asciidoctor-epub3 --version 1.5.0.alpha.6 \
   && gem install --no-ri --no-rdoc asciidoctor-pdf --version 1.5.0.alpha.11 \
   && gem install --no-ri --no-rdoc asciidoctor-confluence \
