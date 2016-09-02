@@ -25,9 +25,9 @@ RUN dnf install -y tar \
     patch \
     liberation-sans-fonts \
     python-setuptools \
-    asciidoctor \
+    rubygem-asciidoctor-pdf.noarch \
   && dnf clean packages \
-  && gem install --no-ri --no-rdoc coderay pygments.rb 
+  && gem install --no-ri --no-rdoc coderay pygments.rb
 
 RUN groupadd -r asciidoc -g 1000 && useradd -u 1000 -r -g asciidoc -m  -s /bin/bash -c "Asciidoctor user" asciidoc 
 
